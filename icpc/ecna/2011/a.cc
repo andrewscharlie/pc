@@ -16,7 +16,6 @@ using namespace std;
 // enables = min heap
 LL calculateCost(vector<int> disables, vector<int> enables, LL constantCost) {
   LL cost = constantCost * (disables.size() + enables.size());
-
   int i = 0;
   while (!disables.empty()) {
     cost += disables.front() * i++;
@@ -70,19 +69,13 @@ LL solve(string src, string dst, vector<int> costs) {
     push_heap(enables.begin(), enables.end(), greater<int>());
 
     constantCost = accumulate(unknowns.begin(), unknowns.end(), 0);
-    LL currentCost = calculateCost(disables, enables, constantCost);
-
-    if (currentCost < lowestCost) {
-      lowestCost = currentCost;
-    } else {
-      break;
-    }
+    lowestCost = min(lowestCost, calculateCost(disables, enables, constantCost));
   }
 
   return lowestCost;
 }
 
-int main() {
+int main(){ 
   int caseNo = 1, length;
 
   cin >> length;
