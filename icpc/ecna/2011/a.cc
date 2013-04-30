@@ -56,6 +56,7 @@ LL solve(string src, string dst, vector<int> costs) {
   LL constantCost = accumulate(unknowns.begin(), unknowns.end(), 0);
   LL lowestCost = calculateCost(disables, enables, constantCost);
 
+  // Determine if it's better to temporarily disable some of the nodes
   while (!unknowns.empty()) {
     int highestUnknown = unknowns.front();
     pop_heap(unknowns.begin(), unknowns.end());
