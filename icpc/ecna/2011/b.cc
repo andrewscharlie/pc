@@ -23,8 +23,8 @@ int solve(int s, int c, int p, int l) {
 
     // There are only c possible values that l can hold, including 0.
     // That means that if we've moved the sprocket forward c times and
-    // they still haven't aligned, it's had a duplicate value at least
-    // once.  This means that we're in a cycle, and the broken
+    // they still haven't aligned, p has had a duplicate value at least
+    // once. This means that we're in a cycle, and the broken
     // components will never line up.
     if (i++ > c) {
       return -1;
@@ -42,7 +42,6 @@ int main() {
     if (s == 0) break;
     
     int result = solve(s, c, p, l);
-    
     if (result != -1) {
       printf("Case %i: %i %i/%i\n", cc++,
 	     result / s,
@@ -51,7 +50,6 @@ int main() {
     } else {
       printf("Case %i: Never\n", cc++);
     }
-
   }
   
   return 0;
