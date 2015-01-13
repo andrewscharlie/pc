@@ -57,8 +57,6 @@ class TestA(unittest.TestCase):
         expected = [[(0, 1), (0, 2)]]
         self.assertItemsEqual(expected, a.get_fits(holes, triangles))
 
-
-
     def test_get_solution(self):
         fits = [[(0, 1), (2, 3)],
                 [(0, 1)]]

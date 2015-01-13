@@ -11,7 +11,6 @@ class Triangle:
         return repr(self.vertices)
 
     def __eq__(self, other):
-        """Determines if two Triangles are equal (after translation/rotation)"""
         if not isinstance(other, self.__class__):
             return False
 
@@ -23,7 +22,6 @@ class Triangle:
             sides1.rotate(1)
 
         return False
-
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -64,6 +62,7 @@ def add_triangles(t1, t2):
     return solutions
 
 def eq(a, b):
+    """Determines whether a and b are equal within epsilon (.05)."""
     return abs(a - b) < .05
 
 def dist(a, b):
