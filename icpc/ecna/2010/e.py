@@ -77,14 +77,14 @@ def main():
         if m == n == 0:
             break
 
-        live_cells_count = int(raw_input())
         
-        live_cells_str = ""
-        while len(live_cells_str.split()) < (live_cells_count * 2):
-            live_cells_str += raw_input()
+        live_cells_count = int(raw_input())
 
-        live_cells_unsplit = map(int, live_cells_str.split())
-        live_cells = [live_cells_unsplit[i:i+2] for i in range(0, len(live_cells_unsplit), 2)]
+        live_cells_unpaired = []
+        while len(live_cells_unpaired) < (live_cells_count * 2):
+            live_cells_unpaired.extend(map(int, raw_input().split()))
+
+        live_cells = [live_cells_unpaired[i:i+2] for i in range(0, len(live_cells_unpaired), 2)]
         generations = int(raw_input())
 
         # In form grid[ring][cell]
